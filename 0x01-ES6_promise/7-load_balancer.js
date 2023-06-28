@@ -6,6 +6,6 @@ export default function loadBalancer(chinaDownload, USDownload) {
       })
       .catch((error) => {
         reject(error);
-      })
-  })
+      });
+  });
 }
