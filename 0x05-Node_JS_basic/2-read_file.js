@@ -2,22 +2,20 @@ const fs  = require("fs");
 
 
 function countStudents(path) {
-  try {
-    const data = fs.readFileSync(path, 'utf-8');
-    const dataArray = transformData(data);
-    const [dataStats, numberOfStudents] = extractStats(dataArray);
-    console.log(`Number of students: ${numOfStudents}`);
-    for (const field in dataStats) {
-      if (dataStats.hasOwnProperty(field)) {
-        let names = dataStats[field];
-	const numOfNames = names.length;
-	names = names.join(", ");
-	console.log(`Number of students in ${field}: ${numOfNames}. List : ${names}`);
-      }
-    }
-  } catch (err) {
-    console.log(err)
+  if (!fs.existsSync(path) || !fs.statsSync(path).isFile()) {
     throw new Error("Cannot load the database");
+  }
+  const data = fs.readFileSync(path, 'utf-8');
+  const dataArray = transformData(data);
+  const [dataStats, numberOfStudents] = extractStats(dataArray);
+  console.log(`Number of students: ${numOfStudents}`);
+  for (const field in dataStats) {
+    if (dataStats.hasOwnProperty(field)) {
+      let names = dataStats[field];
+      const numOfNames = names.length;
+      names = names.join(", ");
+      console.log(`Number of students in ${field}: ${numOfNames}. List : ${names}`);
+    }
   }
 }
 
