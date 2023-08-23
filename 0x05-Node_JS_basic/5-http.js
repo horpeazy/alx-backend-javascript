@@ -51,7 +51,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 const app = http.createServer(async (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   if (req.url === '/') {
-    res.write(Buffer.from('Hello Holberton School!'));
+    res.end(Buffer.from('Hello Holberton School!'));
   }
   if (req.url === '/students') {
     try {
