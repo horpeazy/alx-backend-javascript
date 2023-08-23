@@ -10,7 +10,7 @@ function transformData(data) {
 
 function extractStats(dataArray) {
   const dataStats = {};
-  let numOfStudents = 0; // Declare numOfStudents using let
+  let numOfStudents = 0;
   dataArray.forEach((data) => {
     const field = data[3];
     const name = data[0];
@@ -26,13 +26,13 @@ function extractStats(dataArray) {
 }
 
 function countStudents(path) {
-  if (!fs.existsSync(path) || !fs.statSync(path).isFile()) { // Changed fs.statsSync to fs.statSync
+  if (!fs.existsSync(path) || !fs.statSync(path).isFile()) { 
     throw new Error('Cannot load the database');
   }
   const data = fs.readFileSync(path, 'utf-8');
   const dataArray = transformData(data);
   const [dataStats, numberOfStudents] = extractStats(dataArray);
-  console.log(`Number of students: ${numberOfStudents}`); // Use numberOfStudents
+  console.log(`Number of students: ${numberOfStudents}`);
   for (const field in dataStats) {
     if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
       let names = dataStats[field];
