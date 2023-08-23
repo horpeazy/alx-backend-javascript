@@ -28,7 +28,7 @@ function extractStats(dataArray) {
 const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
-      reject(new Error("Cannot load the database"));
+      reject(new Error('Cannot load the database'));
     } else {
       const dataArray = transformData(data);
       const [dataStats, numberOfStudents] = extractStats(dataArray);
