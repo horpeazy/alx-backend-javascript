@@ -28,12 +28,12 @@ function extractStats(dataArray) {
 const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
-      reject(new Error('Cannot load the database'));
+      reject(new Error('Cannotload the database'));
     } else {
       const dataArray = transformData(data);
       const [dataStats, numberOfStudents] = extractStats(dataArray);
       const response = [];
-      response.push(`Number of students: ${numberOfStudents}`); // Use numberOfStudents
+      response.push(`Number of students: ${numberOfStudents}`);
       for (const field in dataStats) {
         if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
           let names = dataStats[field];
