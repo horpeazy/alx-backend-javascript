@@ -29,21 +29,22 @@ const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
       reject(new Error('Cannot load the database'));
-    }
-    const dataArray = transformData(data);
-    const [dataStats, numberOfStudents] = extractStats(dataArray);
-    const response = [];
-    response.push(`Number of students: ${numberOfStudents}`); // Use numberOfStudents
-    for (const field in dataStats) {
-      if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
-        let names = dataStats[field];
-        const numOfNames = names.length;
-        names = names.join(', ');
-        response.push(`Number of students in ${field}: ${numOfNames}. List : ${names}`);
+    } else {
+      const dataArray = transformData(data);
+      const [dataStats, numberOfStudents] = extractStats(dataArray);
+      const response = [];
+      response.push(`Number of students: ${numberOfStudents}`); // Use numberOfStudents
+      for (const field in dataStats) {
+        if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
+          let names = dataStats[field];
+          const numOfNames = names.length;
+          names = names.join(', ');
+          response.push(`Number of students in ${field}: ${numOfNames}. List: ${names}`);
+        }
       }
+      console.log(response.join('\n'));
+      resolve(true);
     }
-    console.log(response.join('\n'));
-    resolve(true);
   });
 });
 
