@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from 'fs';
 
 function transformData(data) {
   let dataArray = data.split('\n');
@@ -34,6 +34,5 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
     }
   });
 });
-
 
 export default readDatabase;
