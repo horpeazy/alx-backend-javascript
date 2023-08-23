@@ -38,7 +38,7 @@ function countStudents(path) {
       let names = dataStats[field];
       const numOfNames = names.length;
       names = names.join(', ');
-      console.log(`Number of students in ${field}: ${numOfNames}. List : ${names}`);
+      console.log(`Number of students in ${field}: ${numOfNames}. List: ${names}`);
     }
   }
 }
