@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const displayMessage = (text) => {
-  process.stdout.write(text);
+  console.log(text);
 };
 
 module.exports = displayMessage;
