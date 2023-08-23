@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 app.get('/students', async (req, res) => {
   const response = await countStudents(process.argv[2]);
   res.send(`This is the list of our students\n${response}`);
-})
+});
 
 const port = 1245;
 app.listen(port);
