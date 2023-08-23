@@ -32,7 +32,6 @@ const countStudents = (path) => new Promise((resolve, reject) => {
     } else {
       const dataArray = transformData(data);
       const [dataStats, numberOfStudents] = extractStats(dataArray);
-      const response = [];
       console.log(`Number of students: ${numberOfStudents}`);
       for (const field in dataStats) {
         if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
@@ -42,7 +41,6 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           console.log(`Number of students in ${field}: ${numOfNames}. List: ${names}`);
         }
       }
-      //console.log(response.join('\n'));
       resolve(true);
     }
   });
