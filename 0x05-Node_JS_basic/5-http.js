@@ -60,7 +60,8 @@ const app = http.createServer(async (req, res) => {
       res.write(Buffer.from(result));
       res.end();
     } catch (err) {
-      res.end('This is the list of our students\n');
+      const errMsg = err instanceof Error ? err.message : err.toString();
+      res.end(Buffer.from(errMsg));
     }
   }
 });
