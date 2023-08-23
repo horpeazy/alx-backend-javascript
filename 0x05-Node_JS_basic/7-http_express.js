@@ -55,8 +55,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', async (req, res) => {
-  const response = await countStudents(process.argv[2]);
-  res.send(`This is the list of our students\n${response}`);
+  try {
+    const response = await countStudents(process.argv[2]);
+    res.send(`This is the list of our students\n${response}`);
+  } catch (err) {
+    const errMsg = err instanceof Error ? err.message : err.toString();
+    res.send(`This is the list of our students\n${errMsg}`);
+  }
 });
 
 const port = 1245;
