@@ -58,6 +58,7 @@ const app = http.createServer(async (req, res) => {
       res.end();
     } catch (err) {
       const errMsg = err instanceof Error ? err.message : err.toString();
+      res.write(Buffer.from('This is the list of our students\n'));
       res.end(Buffer.from(errMsg));
     }
   } else {
