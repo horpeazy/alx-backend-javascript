@@ -68,3 +68,5 @@ const app = http.createServer(async (req, res) => {
 const port = 1245;
 
 app.listen(port);
+
+module.exports = app;
