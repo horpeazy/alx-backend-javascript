@@ -33,16 +33,16 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       const dataArray = transformData(data);
       const [dataStats, numberOfStudents] = extractStats(dataArray);
       const response = [];
-      response.push(`Number of students: ${numberOfStudents}`);
+      console.log(`Number of students: ${numberOfStudents}`);
       for (const field in dataStats) {
         if (Object.prototype.hasOwnProperty.call(dataStats, field)) {
           let names = dataStats[field];
           const numOfNames = names.length;
           names = names.join(', ');
-          response.push(`Number of students in ${field}: ${numOfNames}. List: ${names}`);
+          console.log(`Number of students in ${field}: ${numOfNames}. List: ${names}`);
         }
       }
-      console.log(response.join('\n'));
+      //console.log(response.join('\n'));
       resolve(true);
     }
   });
