@@ -50,9 +50,6 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 
 const app = http.createServer(async (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  if (req.url === '/') {
-    res.end(Buffer.from('Hello Holberton School!'));
-  }
   if (req.url === '/students') {
     try {
       const result = await countStudents(process.argv[2]);
@@ -63,6 +60,8 @@ const app = http.createServer(async (req, res) => {
       const errMsg = err instanceof Error ? err.message : err.toString();
       res.end(Buffer.from(errMsg));
     }
+  } else {
+    res.end(Buffer.from('Hello Holberton School!'));
   }
 });
 
