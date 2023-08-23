@@ -26,7 +26,7 @@ function extractStats(dataArray) {
 }
 
 function countStudents(path) {
-  if (!fs.existsSync(path) || !fs.statSync(path).isFile()) { 
+  if (!fs.existsSync(path) || !fs.statSync(path).isFile()) {
     throw new Error('Cannot load the database');
   }
   const data = fs.readFileSync(path, 'utf-8');
