@@ -1,19 +1,19 @@
-const http = require("http");
+const http = require('http');
 
 const app = http.createServer((req, res) => {
-  res.writeHead(200, {"Content-Type": "text/plain"});
-  if (req.url == "/") {
-    res.end("Hello Holberton School!");
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  if (req.url === '/') {
+    res.end('Hello Holberton School!');
   }
-  if (req.url == "/students") {
+  if (req.url === '/students') {
     try {
-      res.write("This is the list of our students");
+      res.write('This is the list of our students');
       res.end();
     } catch (err) {
-      return;
+
     }
   }
-})
+});
 
 const port = 1245;
 
