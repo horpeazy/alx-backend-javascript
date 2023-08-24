@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const calculateNumber = require('./2-calcul_chai.js');
+const calculateNumber = require('./1-calcul.js');
 
 
 describe('Test suites', function() {
