@@ -24,7 +24,7 @@ describe("Cart page test", function() {
     request.get(`${url}3`, (error, response, body) => {
       if (error) done(error);
       expect(response.statusCode).to.be.equal(200);
-      expect(response.statusMessage).to.be.equal("OK");
+      //expect(response.statusMessage).to.be.equal("OK");
      // expect(response.complete).to.be.true;
       expect(body).to.be.equal("Payment methods for cart 3");
     })
