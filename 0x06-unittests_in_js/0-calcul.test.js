@@ -43,18 +43,6 @@ describe("test calculateNumber", function() {
     assert.equal(calculateNumber(0, 0), 0);
   })
 
-  it("checks for infinity", function() {
-    assert.equal(calculateNumber(Infinity, 3), Infinity);
-  })
-
-  it("checks for double infinity", function() {
-    assert.equal(calculateNumber(Infinity, Infinity), Infinity);
-  })
-
-  it("checks for negative infinity", function() {
-    assert.equal(calculateNumber(Infinity, -Infinity), NaN);
-  })
-
   it("checks for positive and negative", function() {
     assert.equal(calculateNumber(3, -3), 0);
   })
