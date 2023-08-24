@@ -36,6 +36,7 @@ describe("Cart page test", function() {
       expect(response.statusCode).to.be.equal(404);
       expect(response.statusMessage).to.be.equal("Not Found");
       expect(response.complete).to.be.true;
+      expect(body).to.include('Error');
     })
   })
 })
