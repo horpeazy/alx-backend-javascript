@@ -34,6 +34,8 @@ describe("Cart page test", function() {
     request.get(`${url}one`, (error, response, body) => {
       if (error) done(error);
       expect(response.statusCode).to.be.equal(404);
+      expect(response.statusMessage).to.be.equal("Not Found");
+      expect(response.complete).to.be.true;
     })
   })
 })
