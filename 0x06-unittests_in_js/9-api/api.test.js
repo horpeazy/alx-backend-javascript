@@ -20,7 +20,7 @@ describe("Index page test", function() {
 describe("Cart page test", function() {
   const url = "http://localhost:7865/cart/";
 
-  it("ID is a number", function() {
+  it("ID is a number", function(done) {
     request.get(`${url}3`, (error, response, body) => {
       if (error) done(error);
       expect(response.statusCode).to.be.equal(200);
@@ -31,7 +31,7 @@ describe("Cart page test", function() {
     })
   })
 
-  it("ID is not a number", function() {
+  it("ID is not a number", function(done) {
     request.get(`${url}one`, (error, response, body) => {
       if (error) done(error);
       expect(response.statusCode).to.be.equal(404);
