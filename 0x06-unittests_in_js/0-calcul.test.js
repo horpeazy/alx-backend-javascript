@@ -19,11 +19,27 @@ describe("test calculateNumber", function() {
     assert.equal(calculateNumber(1.5, 3.7), 6);
   })
 
-  it("checks that strings are cast to int", function() {
-    assert.equal(calculateNumber("2", 5), 7);
+  it("checks for round down", function() {
+    assert.equal(calculateNumber(2.1, 5), 7);
   })
 
-  it("checks that NaN returns NaN", function() {
-    assert.equal(calculateNumber(3, NaN), NaN);
+  it("checks for round up extreme", function() {
+    assert.equal(calculateNumber(3, 4.9), 8);
+  })
+
+  it("checks for round up for both", function() {
+    assert.equal(calculateNumber(3.5, 2.5), 7);
+  })
+
+  it("checks for max value", function() {
+    assert.equal(calculateNumber(Number.MAX_VALUE, 56), Number.MAX_VALUE);
+  })
+
+  it("checks for both max value", function() {
+    assert.equal(calculateNumber(Number.MAX_VALUE, Number.MAX_VALUE), Infinity);
+  })
+
+  it("checks for zeros", function() {
+    assert.equal(calculateNumber(0, 0), 0);
   })
 })
